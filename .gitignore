@@ -1,17 +1,39 @@
+# Virtual environment
 .venv/
+venv/
+
+# Python
 __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
 *.sqlite3
 *.log
+
+# Jupyter
 .ipynb_checkpoints/
+
+# Node
 node_modules/
+
+# VS Code
 .vscode/
+
+# macOS
 .DS_Store
-.vercel
-# Ignore raw datasets and generated model artifacts for repository cleanliness
+
+# Vercel
+.vercel/
+
+# Environment variables
+.env
+
+# Ignore raw datasets
 data/raw/
+
+# Ignore trained models
 models/*.joblib
+
+# Generated metrics
 training_metrics.json
 model_comparison.json
