@@ -134,9 +134,9 @@ AI-Powered-Financial-Risk-Assessment-Platform/
 
 | Model | Accuracy | ROC-AUC | Status |
 |--------|----------|---------|--------|
-| Logistic Regression | XX% | XX | Baseline |
-| Random Forest | XX% | XX | Candidate |
-| XGBoost | XX% | XX | ✅ Best Model |
+| Logistic Regression | 65.91 | 71.73% | Baseline |
+| Random Forest | 69.97% | 73.70% | Candidate |
+| XGBoost | 71.76% | 75.62% | ✅ Best Model |
 
 *(Replace with your actual evaluation metrics.)*
 
