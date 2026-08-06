@@ -21,13 +21,31 @@ Banks must decide whether to approve, reject, or review a loan application. A po
 - Phase-by-phase roadmap
 
 ## Repository Structure
-- data/raw/: original Home Credit CSV files
-- data/processed/: cleaned and feature-enhanced datasets
-- models/: serialized model artifacts and explainability artifacts
-- notebooks/: exploration and modeling notebooks
-- src/: reusable Python modules for data processing, training, and serving
-- app/: backend and dashboard application code
-- docs/: business and technical documentation
+## 📂 Repository Structure
+
+```text
+AI-Powered-Financial-Risk-Assessment-Platform/
+├── app/                     # Streamlit dashboard and application code
+├── api/                     # FastAPI backend services
+├── data/
+│   ├── raw/                 # Original Home Credit dataset (ignored)
+│   └── processed/           # Cleaned & feature-engineered datasets
+├── deployment/              # Deployment configuration files
+├── docs/                    # Project documentation
+├── models/                  # Trained models & explainability artifacts
+├── notebooks/               # EDA and experimentation notebooks
+├── src/
+│   ├── data/                # Data loading & preprocessing
+│   ├── features/            # Feature engineering
+│   ├── models/              # Model training & evaluation
+│   ├── explainability/      # SHAP/LIME utilities
+│   └── utils/               # Shared helper functions
+├── README.md
+├── requirements.txt
+├── run_pipeline.py          # End-to-end ML pipeline
+├── verify_training.py       # Model verification script
+└── .gitignore
+```
 
 ## Getting started
 1. Install dependencies:
