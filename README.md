@@ -1,73 +1,166 @@
 # FinRisk AI: Explainable Financial Risk Assessment and Decision Support Platform
 
-This project is being built as a production-style fintech analytics platform using the Home Credit Default Risk dataset. The goal is to move beyond a simple classification model and create a business-facing credit risk decision support system for banks and lending teams.
 
-## Project Goal
-Build a system that helps financial institutions assess the probability of customer loan default while providing explainable reasoning, analytics, and a dashboard for credit analysts, risk managers, and operations teams.
+An end-to-end machine learning platform that predicts customer credit risk and provides explainable insights to support data-driven lending decisions.
 
-## Business Problem
-Banks must decide whether to approve, reject, or review a loan application. A poor decision can lead to financial losses from defaults or missed revenue from rejecting good customers. This platform helps reduce risk while increasing transparency and decision efficiency.
+The project demonstrates how financial institutions can leverage predictive analytics to automate credit risk assessment, improve decision consistency, and enhance transparency through explainable AI.
 
-## Target Users
-- Credit analysts
-- Risk managers
-- Banking operations teams
-- Business stakeholders
+---
 
-## Phase 0 Deliverables
-- Business understanding
-- Project architecture
-- Dataset architecture
-- Phase-by-phase roadmap
+## 💼 Business Problem
 
-## Repository Structure
+Financial institutions process thousands of loan applications every day. Manual risk assessment is often time-consuming, inconsistent, and difficult to scale.
+
+This platform addresses these challenges by:
+
+- Predicting the probability of customer default using machine learning.
+- Providing interpretable risk scores using SHAP Explainability.
+- Delivering predictions through a REST API and interactive dashboard.
+- Supporting analysts with data-driven decision making.
+
+---
+
+## 🚀 Key Features
+
+- 📊 Automated Credit Risk Prediction
+- 🧠 Machine Learning Risk Assessment Engine
+- 🔍 SHAP Explainability for transparent predictions
+- 🌐 FastAPI REST API for real-time inference
+- 📈 Interactive Streamlit Dashboard
+- ⚙️ End-to-End Training & Evaluation Pipeline
+- 📋 Model Comparison and Performance Tracking
+- 🏗️ Modular Production-Ready Project Structure
+
+---
+
+## 🏦 Financial Risk Assessment Workflow
+
+
+                  Customer Loan Application
+                             │
+                             ▼
+                  Customer Financial Data
+                             │
+                             ▼
+              Data Validation & Cleaning
+                             │
+                             ▼
+                 Feature Engineering
+                             │
+                             ▼
+          Credit Risk Prediction Models
+                             │
+                             ▼
+               Model Performance Evaluation
+                             │
+                             ▼
+             Best Model Selected for Serving
+                             │
+               ┌─────────────┴─────────────┐
+               ▼                           ▼
+      Risk Probability Score        SHAP Explainability
+               │                           │
+               └─────────────┬─────────────┘
+                             ▼
+              FastAPI Prediction Service
+                             │
+                             ▼
+           Streamlit Risk Assessment Dashboard
+                             │
+                             ▼
+       Business Decision Support for Loan Approval
+```
+
+---
+
 ## 📂 Repository Structure
 
 ```text
 AI-Powered-Financial-Risk-Assessment-Platform/
-├── app/                     # Streamlit dashboard and application code
-├── api/                     # FastAPI backend services
+│
+├── app/                     # Streamlit dashboard
+├── api/                     # FastAPI backend
 ├── data/
 │   ├── raw/                 # Original Home Credit dataset (ignored)
-│   └── processed/           # Cleaned & feature-engineered datasets
-├── deployment/              # Deployment configuration files
-├── docs/                    # Project documentation
-├── models/                  # Trained models & explainability artifacts
-├── notebooks/               # EDA and experimentation notebooks
-├── src/
-│   ├── data/                # Data loading & preprocessing
-│   ├── features/            # Feature engineering
-│   ├── models/              # Model training & evaluation
-│   ├── explainability/      # SHAP/LIME utilities
-│   └── utils/               # Shared helper functions
-├── README.md
+│   └── processed/           # Cleaned & feature-engineered data
+│
+├── deployment/              # Deployment configuration
+├── docs/                    # Documentation
+├── models/                  # Saved models & explainability artifacts
+├── notebooks/               # EDA and experimentation
+├── src/                     # Core machine learning pipeline
+│
+├── run_pipeline.py          # End-to-end pipeline
+├── verify_training.py       # Model verification
 ├── requirements.txt
-├── run_pipeline.py          # End-to-end ML pipeline
-├── verify_training.py       # Model verification script
-└── .gitignore
+├── README.md
+└── vercel.json
 ```
 
-## Getting started
-1. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-2. Prepare raw data in `data/raw/`.
-3. Run the core pipeline and generate model comparison output:
-   ```bash
-   python run_pipeline.py
-   ```
-4. Train and save the API model (this creates `models/finrisk_model.joblib`, `training_metrics.json`, and `model_metadata.json`):
-   ```bash
-   python -c "from src.model_service import train_and_save; print(train_and_save())"
-   ```
-5. Start the API service:
-   ```bash
-   uvicorn app.main:app --reload
-   ```
-6. Open the dashboard in a separate terminal:
-   ```bash
-   streamlit run app/dashboard.py
-   ```
+---
 
-> Note: The Streamlit dashboard requires the FastAPI backend to be running locally at `http://localhost:8000`.
+## ⚙️ Technology Stack
+
+| Category | Technologies |
+|----------|--------------|
+| Programming | Python |
+| Machine Learning | Scikit-learn, XGBoost |
+| Data Processing | Pandas, NumPy |
+| Visualization | Matplotlib, Seaborn |
+| Explainability | SHAP |
+| Backend | FastAPI |
+| Frontend | Streamlit |
+| Model Serialization | Joblib |
+| Deployment | Vercel |
+
+---
+
+## 📊 Machine Learning Pipeline
+
+1. Load Home Credit customer data.
+2. Clean missing and inconsistent values.
+3. Perform feature engineering.
+4. Split data into train and test sets.
+5. Train multiple classification models.
+6. Compare model performance.
+7. Select the best-performing model.
+8. Serialize the trained model.
+9. Serve predictions through FastAPI.
+10. Visualize results using Streamlit.
+
+---
+
+## 📈 Model Performance
+
+| Model | Accuracy | ROC-AUC | Status |
+|--------|----------|---------|--------|
+| Logistic Regression | XX% | XX | Baseline |
+| Random Forest | XX% | XX | Candidate |
+| XGBoost | XX% | XX | ✅ Best Model |
+
+*(Replace with your actual evaluation metrics.)*
+
+---
+
+## 💼 Business Value
+
+This platform demonstrates how predictive analytics can support financial institutions by:
+
+- Reducing manual effort in credit risk assessment.
+- Improving consistency in lending decisions.
+- Providing explainable predictions for regulatory transparency.
+- Enabling faster decision-making through an interactive dashboard.
+- Supporting scalable, data-driven loan approval workflows.
+
+---
+
+## 🚀 Future Enhancements
+
+- Real-time risk monitoring
+- Cloud deployment (AWS/Azure/GCP)
+- Customer authentication
+- Automated model retraining
+- CI/CD pipeline
+- Docker & Kubernetes deployment
+- MLOps integration
+- Monitoring and logging
