@@ -34,6 +34,4 @@ data/raw/
 # Ignore trained models
 models/*.joblib
 
-# Generated metrics
-training_metrics.json
-model_comparison.json
+

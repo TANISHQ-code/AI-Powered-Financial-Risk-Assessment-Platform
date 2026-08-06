@@ -1,0 +1,19 @@
+{
+  "model_type": "xgboost",
+  "resample_method": "oversample",
+  "accuracy": 0.695561156050567,
+  "precision": 0.16585691728410057,
+  "recall": 0.6870440251572327,
+  "f1": 0.26720806222787535,
+  "roc_auc": 0.7528781980708635,
+  "confusion_matrix": [
+    [
+      31492,
+      13735
+    ],
+    [
+      1244,
+      2731
+    ]
+  ]
+}
