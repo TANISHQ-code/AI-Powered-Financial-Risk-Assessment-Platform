@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.sqlite3
+*.log
+.ipynb_checkpoints/
+node_modules/
+.vscode/
+.DS_Store
+.vercel
+# Ignore raw datasets and generated model artifacts for repository cleanliness
+data/raw/
+models/*.joblib
+training_metrics.json
+model_comparison.json
