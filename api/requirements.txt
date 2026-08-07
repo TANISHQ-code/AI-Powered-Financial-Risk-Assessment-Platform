@@ -1,9 +1,9 @@
 fastapi
 uvicorn
 pydantic
-numpy
+numpy==1.26.4
 pandas
 scikit-learn
 xgboost
 joblib
-shap>=0.45.0
+shap==0.46.0
