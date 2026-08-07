@@ -1,26 +1,5 @@
 # 🏦 AI-Powered Financial Risk Assessment Platform
 
-<<<<<<< HEAD
-<p align="center">
-=======
-## Banking risk management upgrade
-
-FinRisk AI combines an XGBoost credit-risk model, SHAP explanations, FastAPI, PostgreSQL, SQLAlchemy, Alembic, and Streamlit into an auditable decision-support workflow.
-
-```text
-Analyst -> Streamlit -> FastAPI -> PostgreSQL
-                         |             |
-                         -> ML + SHAP  -> history and analyst decisions
-```
-
-Database tables are `customers`, `risk_reports`, `analyst_decisions`, and `model_performance`. Every risk report stores the model version, timestamp, score, and immutable input snapshot, which supports auditability and reproducible explanations.
-
-API endpoints: `POST /predict-risk`, `POST /explain-risk`, `GET /risk-history`, `GET /risk-reviews/pending`, `PUT /risk-decision/{report_id}`, and `GET /analytics/summary`.
-
-Use `alembic upgrade head` for migrations. For local development, omitting `DATABASE_URL` uses SQLite; production should use PostgreSQL. Start locally with `uvicorn app.main:app --reload` and `streamlit run app/dashboard.py`, or use `docker compose -f deployment/docker-compose.yml up --build`.
-
->>>>>>> e48b84b (Improve dashboard UI, README and deployment configuration)
-
 [![Live Demo](https://img.shields.io/badge/🚀%20Live%20Demo-Streamlit-red?style=for-the-badge&logo=streamlit)](https://finriskk-ai.streamlit.app/)
 ![Python](https://img.shields.io/badge/Python-3.12-blue?style=for-the-badge&logo=python)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi)
