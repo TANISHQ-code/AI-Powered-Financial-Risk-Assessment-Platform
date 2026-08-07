@@ -1,8 +1,41 @@
 version: '3.8'
 services:
   finrisk-api:
-    build: ../
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile.api
     ports:
       - '8000:8000'
     environment:
-      - ENV=production
+      DATABASE_URL: postgresql+psycopg://finrisk:finrisk@postgres:5432/finrisk
+      MODEL_PATH: /app/models/finrisk_model.joblib
+      API_KEYS: ${API_KEYS:-}
+    depends_on:
+      postgres:
+        condition: service_healthy
+  finrisk-dashboard:
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile.dashboard
+    ports:
+      - '8501:8501'
+    environment:
+      API_URL: http://finrisk-api:8000
+      API_KEY: ${API_KEY:-}
+    depends_on:
+      - finrisk-api
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: finrisk
+      POSTGRES_PASSWORD: finrisk
+      POSTGRES_DB: finrisk
+    volumes:
+      - finrisk-postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U finrisk -d finrisk']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+volumes:
+  finrisk-postgres:
