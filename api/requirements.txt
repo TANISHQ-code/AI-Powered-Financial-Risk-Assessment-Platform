@@ -6,4 +6,4 @@ pandas
 scikit-learn
 xgboost
 joblib
-shap
+shap>=0.45.0
