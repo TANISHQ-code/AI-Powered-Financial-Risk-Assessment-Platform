@@ -1,6 +1,6 @@
 # 🏦 AI-Powered Financial Risk Assessment Platform
 
-[![Live Demo](https://img.shields.io/badge/🚀%20Live%20Demo-Streamlit-red?style=for-the-badge&logo=streamlit)](https://finriskk-ai.streamlit.app/)
+[![Live Demo](https://img.shields.io/badge/🚀%20Live%20Demo-Streamlit-red?style=for-the-badge&logo=streamlit)](https://finrisk-ai-pi.vercel.app/)
 ![Python](https://img.shields.io/badge/Python-3.12-blue?style=for-the-badge&logo=python)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi)
 ![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-FF4B4B?style=for-the-badge&logo=streamlit)
@@ -16,7 +16,7 @@
 
 🚀 **Interactive Dashboard**
 
-**https://finriskk-ai.streamlit.app/**
+**https://finrisk-ai-pi.vercel.app/**
 
 The live application allows users to:
 
