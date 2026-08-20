@@ -9,6 +9,7 @@ from src.model_store import save_model, load_model
 from src.feature_engineering import engineer_features, get_model_feature_columns
 from src.explainability import explain_customer
 
+
 MODEL_FILENAME = "finrisk_model.joblib"
 METRICS_FILENAME = "training_metrics.json"
 METADATA_FILENAME = "model_metadata.json"
@@ -20,8 +21,10 @@ def _get_metadata_path() -> Path:
 
 def save_metadata(metadata: dict[str, Any]) -> str:
     metadata_path = _get_metadata_path()
+
     with metadata_path.open("w", encoding="utf-8") as f:
         json.dump(metadata, f, indent=2)
+
     return str(metadata_path)
 
 
@@ -38,7 +41,8 @@ def load_metadata() -> dict[str, Any]:
 
 
 def train_and_save(model_type: str = "xgboost") -> dict[str, Any]:
-    # Import training pipeline only when training is explicitly requested.
+    # Import the training pipeline only when training is explicitly requested.
+    # This prevents Vercel from importing XGBoost when the API starts.
     from src.pipeline import run_training_pipeline
 
     model, metrics, feature_columns = run_training_pipeline(
@@ -66,6 +70,7 @@ def train_and_save(model_type: str = "xgboost") -> dict[str, Any]:
 def load_trained_model():
     try:
         return load_model(MODEL_FILENAME)
+
     except FileNotFoundError as exc:
         raise HTTPException(
             status_code=500,
@@ -80,6 +85,7 @@ def _prepare_input_dataframe(
 
     raw_df = pd.DataFrame([input_data])
     raw_df = raw_df.copy()
+
     raw_df = engineer_features(raw_df)
 
     for col in feature_columns:
@@ -89,7 +95,10 @@ def _prepare_input_dataframe(
     return raw_df[feature_columns]
 
 
-def predict_risk(input_data: dict[str, Any]) -> dict[str, Any]:
+def predict_risk(
+    input_data: dict[str, Any]
+) -> dict[str, Any]:
+
     model = load_trained_model()
     metadata = load_metadata()
 
@@ -119,7 +128,10 @@ def predict_risk(input_data: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def explain_risk(input_data: dict[str, Any]) -> dict[str, Any]:
+def explain_risk(
+    input_data: dict[str, Any]
+) -> dict[str, Any]:
+
     model = load_trained_model()
     metadata = load_metadata()
 
