@@ -31,10 +31,9 @@ node_modules/
 # Ignore raw datasets
 data/raw/
 
-# Ignore trained models
-models/*.joblib
 # SQLite database
 *.db
+
 # Ignore Alembic migration files
 alembic.ini
 alembic/
@@ -45,4 +44,3 @@ deployment/Dockerfile.dashboard
 
 # Ignore documentation draft
 docs/production-upgrade.md
-
